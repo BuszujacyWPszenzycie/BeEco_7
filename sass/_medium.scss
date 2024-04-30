@@ -1,0 +1,30 @@
+@media (min-width: 768px) {
+	.header {
+		&__mobile {
+			display: none;
+		}
+
+		&__desktop {
+			display: block;
+		}
+	}
+
+	.nav {
+		&__desktop {
+			&--item {
+				font-size: 1.4rem;
+				width: 135px;
+			}
+		}
+	}
+
+	.segregate {
+		&__mobile {
+			display: none;
+		}
+
+		&__desktop {
+			display: flex;
+		}
+	}
+}
