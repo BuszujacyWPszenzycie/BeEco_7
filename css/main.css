@@ -395,8 +395,9 @@ body {
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
 }
-.segregate__desktop--yesList {
+.segregate__desktop--itemWrapper {
   position: absolute;
+  display: flex;
 }
 .segregate__desktop--li {
   color: #ffffff;

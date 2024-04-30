@@ -453,9 +453,17 @@ body {
 			background-color: rgba(0, 0, 0, 0.6);
 		}
 
-		&--yesList {
+		&--itemWrapper {
 			position: absolute;
+			display: flex;
 		}
+
+		// &--yesList {
+		// 	position: absolute;
+		// }
+		// &--noList {
+		// 	position: absolute;
+		// }
 
 		&--li {
 			// position: absolute;

@@ -120,7 +120,7 @@ export const mixedNo = [
 	'Opdady gabarytowe',
 ]
 
-export const electoYes = [
+export const electroYes = [
 	'Sprzęt działający na zasadzie wymiany temperatury np. lodówka, zamrażarka, klimatyzator, grzejnik',
 	'Ekrany, monitory i sprzęt zawierający ekrany o powierzchni większej niż 100 cm².',
 	'Lampy np. świetlówki, LEDy, lampy sodowe i wysokoprężne',

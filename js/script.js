@@ -9,7 +9,7 @@ import {
 	bioYes,
 	mixedNo,
 	mixedYes,
-	electoYes,
+	electroYes,
 	electroNo,
 	largeNo,
 	largeYes,
@@ -116,7 +116,7 @@ const checkWhatSegregateIconClickedFunction = e => {
 		allSegregateIconsWrappers[5].classList.add('iconWrapper-active')
 		allSegregateTitles[5].classList.add('icon-active')
 		allSegregateDescriptions[5].classList.add('icon-active')
-		createYesListFunctionMobile(electoYes)
+		createYesListFunctionMobile(electroYes)
 		createNoListFunctionMobile(electroNo)
 	} else if (e.target === allSegregateIconsWrappers[6] || e.target === allSegregateIcons[6]) {
 		removeAcitveClassesFromSegregateIconsFunction()
@@ -181,8 +181,6 @@ const removeAcitveClassesFromSegregateIconsFunction = () => {
 	})
 }
 
-const name = params => {}
-
 // Remove active from desktop items
 
 function removeActiveClassesFromDesktop() {
@@ -199,6 +197,29 @@ function removeActiveClassesFromDesktop() {
 	})
 }
 
+// Adding LI items to segregate panels
+
+const segregateDesktopItemsFunction = (item, itemYes, itemNo) => {
+	const allSegregateYesList = document.querySelectorAll('.segregate__desktop--yesList')
+	const allSegregateNoList = document.querySelectorAll('.segregate__desktop--noList')
+
+	itemYes.forEach(segregateItem => {
+		const newLiItem = document.createElement('li')
+		newLiItem.classList.add('segregate__desktop--li')
+		newLiItem.textContent = segregateItem
+		allSegregateYesList[item].appendChild(newLiItem)
+		newLiItem.classList.add('li-active')
+	})
+
+	itemNo.forEach(segregateItem => {
+		const newLiItem = document.createElement('li')
+		newLiItem.classList.add('segregate__desktop--li')
+		newLiItem.textContent = segregateItem
+		allSegregateNoList[item].appendChild(newLiItem)
+		newLiItem.classList.add('li-active')
+	})
+}
+
 // Event Listeners
 hamburgerBtn.addEventListener('click', showMobileNavFunction)
 allSegregateIconsWrappers.forEach(iconWrapper => {
@@ -206,16 +227,38 @@ allSegregateIconsWrappers.forEach(iconWrapper => {
 })
 
 allDesktopItems.forEach(item => {
-	item.addEventListener('click', () => {
+	item.addEventListener('click', e => {
+		let itemNumber = 0
 		removeActiveClassesFromDesktop()
 		item.classList.add('item-active')
 		const shadow = item.querySelector('div')
 		const title = item.querySelector('h3')
 		shadow.classList.add('shadow-active')
 		title.classList.add('title-active')
-		const segregateDesktopLi = document.querySelectorAll('.segregate__desktop--li')
-		segregateDesktopLi.forEach(li => {
-			li.classList.add('li-active')
-		})
+		const allDesktopItems = document.querySelectorAll('.segregate__desktop--shadow')
+		const allDesktopItemsTitles = document.querySelectorAll('.segregate__desktop--title')
+
+		if (e.target === allDesktopItems[0] || e.target === allDesktopItemsTitles[0]) {
+			itemNumber = 0
+			segregateDesktopItemsFunction(itemNumber, plasticYes, plasticNo)
+		} else if (e.target === allDesktopItems[1] || e.target === allDesktopItemsTitles[1]) {
+			itemNumber = 1
+			segregateDesktopItemsFunction(itemNumber, paperYes, paperNo)
+		} else if (e.target === allDesktopItems[2] || e.target === allDesktopItemsTitles[2]) {
+			itemNumber = 2
+			segregateDesktopItemsFunction(itemNumber, glassYes, glassNo)
+		} else if (e.target === allDesktopItems[3] || e.target === allDesktopItemsTitles[3]) {
+			itemNumber = 3
+			segregateDesktopItemsFunction(itemNumber, bioYes, bioNo)
+		} else if (e.target === allDesktopItems[4] || e.target === allDesktopItemsTitles[4]) {
+			itemNumber = 4
+			segregateDesktopItemsFunction(itemNumber, mixedYes, mixedNo)
+		} else if (e.target === allDesktopItems[5] || e.target === allDesktopItemsTitles[5]) {
+			itemNumber = 5
+			segregateDesktopItemsFunction(itemNumber, electroYes, electroNo)
+		} else if (e.target === allDesktopItems[6] || e.target === allDesktopItemsTitles[6]) {
+			itemNumber = 6
+			segregateDesktopItemsFunction(itemNumber, largeYes, largeNo)
+		}
 	})
 })
