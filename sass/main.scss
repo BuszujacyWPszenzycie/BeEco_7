@@ -331,6 +331,7 @@ body {
 
 		&--list {
 			list-style: none;
+			
 		}
 
 		&--li {
@@ -397,7 +398,7 @@ body {
 			background-size: cover;
 			background-position: center;
 			background-repeat: no-repeat;
-			height: 80vh;
+			height: 90vh;
 			cursor: pointer;
 			flex: 0.5;
 			margin: 10px;
@@ -455,19 +456,28 @@ body {
 
 		&--itemWrapper {
 			position: absolute;
+			height: 100%;
+			width: 100%;
 			display: flex;
+			justify-content: center;
+			align-items: center;
 		}
 
-		// &--yesList {
-		// 	position: absolute;
-		// }
-		// &--noList {
-		// 	position: absolute;
-		// }
+		&--yesList {
+			flex-grow: 0;
+			height: 100%;
+			background-color: rgb(0, 128, 0, 0.2);
+		}
+		&--noList {
+			flex-grow: 0;
+			height: 100%;
+			background-color: rgb(255, 0, 0, 0.2);
+		}
 
 		&--li {
-			// position: absolute;
 			color: $white;
+			font-size: 1.2rem;
+			padding: 0.7rem;
 			display: none;
 		}
 	}
@@ -503,10 +513,16 @@ body {
 	opacity: 0.1;
 }
 
+.ul-active {
+	width: 50%;
+	overflow-y: auto;
+}
+
 .li-active {
 	display: block;
 	z-index: 5;
 	color: $white;
+	flex: 1;
 }
 
 @import './small';

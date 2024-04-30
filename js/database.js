@@ -129,7 +129,7 @@ export const electroYes = [
 	'Małogabarytowy sprzęt informatyczny i telekomunikacyjny (do 50 cm) np. telefony komórkowe, kalkulatory kieszonkowe, laptopy i drukarki.',
 ]
 
-export const electroNo = []
+export const electroNo = ['']
 
 export const largeYes = [
 	'Odpady komunalne powstające w gospodarstwach domowych, które ze względu na ponadnormatywne wymiary lub wagę nie mieszczą się w standardowych pojemnikach i kontenerach na odpady.',

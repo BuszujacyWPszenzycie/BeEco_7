@@ -348,7 +348,7 @@ body {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  height: 80vh;
+  height: 90vh;
   cursor: pointer;
   flex: 0.5;
   margin: 10px;
@@ -397,10 +397,26 @@ body {
 }
 .segregate__desktop--itemWrapper {
   position: absolute;
+  height: 100%;
+  width: 100%;
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.segregate__desktop--yesList {
+  flex-grow: 0;
+  height: 100%;
+  background-color: rgba(0, 128, 0, 0.2);
+}
+.segregate__desktop--noList {
+  flex-grow: 0;
+  height: 100%;
+  background-color: rgba(255, 0, 0, 0.2);
 }
 .segregate__desktop--li {
   color: #ffffff;
+  font-size: 1.2rem;
+  padding: 0.7rem;
   display: none;
 }
 
@@ -434,10 +450,16 @@ body {
   opacity: 0.1;
 }
 
+.ul-active {
+  width: 50%;
+  overflow-y: auto;
+}
+
 .li-active {
   display: block;
   z-index: 5;
   color: #ffffff;
+  flex: 1;
 }
 
 @media (min-width: 576px) {

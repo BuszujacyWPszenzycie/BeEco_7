@@ -31,6 +31,8 @@ const allDesktopItems = document.querySelectorAll('.segregate__desktop--item')
 const allDesktopItemsTitles = document.querySelectorAll('.segregate__desktop--title')
 const allDesktopItemsShadows = document.querySelectorAll('.segregate__desktop--shadow')
 const allSegregateItemsWrapper = document.querySelectorAll('.segregate__desktop--itemWrapper')
+const allSegregateYesList = document.querySelectorAll('.segregate__desktop--yesList')
+const allSegregateNoList = document.querySelectorAll('.segregate__desktop--noList')
 
 document.addEventListener('DOMContentLoaded', function () {
 	// Get all <span> elements within the container
@@ -194,19 +196,25 @@ function removeActiveClassesFromDesktop() {
 		segregateDesktopLi.forEach(li => {
 			li.classList.remove('li-active')
 		})
+		allSegregateYesList.forEach(item => {
+			item.classList.remove('ul-active')
+		})
+		allSegregateNoList.forEach(item => {
+			item.classList.remove('ul-active')
+		})
 	})
 }
 
 // Adding LI items to segregate panels
 
 const segregateDesktopItemsFunction = (item, itemYes, itemNo) => {
-	const allSegregateYesList = document.querySelectorAll('.segregate__desktop--yesList')
-	const allSegregateNoList = document.querySelectorAll('.segregate__desktop--noList')
+	console.log('test')
 
 	itemYes.forEach(segregateItem => {
 		const newLiItem = document.createElement('li')
 		newLiItem.classList.add('segregate__desktop--li')
 		newLiItem.textContent = segregateItem
+		allSegregateYesList[item].classList.add('ul-active')
 		allSegregateYesList[item].appendChild(newLiItem)
 		newLiItem.classList.add('li-active')
 	})
@@ -215,6 +223,7 @@ const segregateDesktopItemsFunction = (item, itemYes, itemNo) => {
 		const newLiItem = document.createElement('li')
 		newLiItem.classList.add('segregate__desktop--li')
 		newLiItem.textContent = segregateItem
+		allSegregateNoList[item].classList.add('ul-active')
 		allSegregateNoList[item].appendChild(newLiItem)
 		newLiItem.classList.add('li-active')
 	})
@@ -235,28 +244,32 @@ allDesktopItems.forEach(item => {
 		const title = item.querySelector('h3')
 		shadow.classList.add('shadow-active')
 		title.classList.add('title-active')
-		const allDesktopItems = document.querySelectorAll('.segregate__desktop--shadow')
-		const allDesktopItemsTitles = document.querySelectorAll('.segregate__desktop--title')
+		// const allDesktopItems = document.querySelectorAll('.segregate__desktop--shadow')
+		// const allDesktopItemsTitles = document.querySelectorAll('.segregate__desktop--title')
 
-		if (e.target === allDesktopItems[0] || e.target === allDesktopItemsTitles[0]) {
+		const allPanelsWrappers = document.querySelectorAll('.segregate__desktop--itemWrapper')
+
+		console.log(e.target)
+
+		if (e.target === allPanelsWrappers[0]) {
 			itemNumber = 0
 			segregateDesktopItemsFunction(itemNumber, plasticYes, plasticNo)
-		} else if (e.target === allDesktopItems[1] || e.target === allDesktopItemsTitles[1]) {
+		} else if (e.target === allPanelsWrappers[1]) {
 			itemNumber = 1
 			segregateDesktopItemsFunction(itemNumber, paperYes, paperNo)
-		} else if (e.target === allDesktopItems[2] || e.target === allDesktopItemsTitles[2]) {
+		} else if (e.target === allPanelsWrappers[2]) {
 			itemNumber = 2
 			segregateDesktopItemsFunction(itemNumber, glassYes, glassNo)
-		} else if (e.target === allDesktopItems[3] || e.target === allDesktopItemsTitles[3]) {
+		} else if (e.target === allPanelsWrappers[3]) {
 			itemNumber = 3
 			segregateDesktopItemsFunction(itemNumber, bioYes, bioNo)
-		} else if (e.target === allDesktopItems[4] || e.target === allDesktopItemsTitles[4]) {
+		} else if (e.target === allPanelsWrappers[4]) {
 			itemNumber = 4
 			segregateDesktopItemsFunction(itemNumber, mixedYes, mixedNo)
-		} else if (e.target === allDesktopItems[5] || e.target === allDesktopItemsTitles[5]) {
+		} else if (e.target === allPanelsWrappers[5]) {
 			itemNumber = 5
 			segregateDesktopItemsFunction(itemNumber, electroYes, electroNo)
-		} else if (e.target === allDesktopItems[6] || e.target === allDesktopItemsTitles[6]) {
+		} else if (e.target === allPanelsWrappers[6]) {
 			itemNumber = 6
 			segregateDesktopItemsFunction(itemNumber, largeYes, largeNo)
 		}
